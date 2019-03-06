@@ -14,13 +14,21 @@ public class TodoController {
     @Autowired
     TodoService todoService;
 
+    /*
+    * getTodoList - todo리스트
+    *
+    * */
     @GetMapping("/todo/{todoId}")
     @ResponseBody
-    public List<Map<String, Object>> getEmployee(@PathVariable("todoId") String todoId) {
+    public List<Map<String, Object>> getTodoList(@PathVariable("todoId") String todoId) {
         //System.out.println("todoId:::::::::::::::::::::::::"+todoId);
-        return todoService.getTodo();
+        return todoService.getTodoList();
     }
 
+    /*
+     * insertTodo - todo등록
+     *
+     * */
     @PostMapping("/todos")
     @ResponseBody
     public void insertTodo(@RequestParam HashMap<String,Object> params){
@@ -28,6 +36,10 @@ public class TodoController {
         todoService.insertTodo(params);
     }
 
+    /*
+     * deleteTodo - todo삭제
+     *
+     * */
     @DeleteMapping("/todo/{todoId}")
     @ResponseBody
     public void deleteTodo(@PathVariable("todoId") String todoId){

@@ -19,12 +19,14 @@ public class TodoService {
         this.todoMapper = todoMapper;
     }
 
-
-    public List<Map<String, Object>> getTodo() {
-        return todoMapper.getTodo();
+    //getTodoList - todo리스트
+    public List<Map<String, Object>> getTodoList() {
+        return todoMapper.getTodoList();
     }
 
+    //insertTodo - todo등록
     public void insertTodo(HashMap map) { todoMapper.insertTodo(map); }
 
+    //deleteTodo - todo삭제
     public void deleteTodo(HashMap map) { todoMapper.deleteTodo(map); }
 }
