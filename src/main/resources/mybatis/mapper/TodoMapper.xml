@@ -6,4 +6,20 @@
     <select id="getTodo" resultType="java.util.HashMap">
         SELECT * FROM todo
     </select>
+
+    <insert id="insertTodo" parameterType="java.util.HashMap">
+        INSERT INTO todo (todo_id, contents, completed_yn, order_by, end_dttm, reg_dttm)
+        VALUES (
+          (SELECT cast(max(todo_id) as int)+1 FROM todo),
+          #{contents},
+          'n',
+          #{orderBy},
+          cast(#{endDttm} as timestamp),
+          current_timestamp
+        )
+    </insert>
+
+    <delete id="deleteTodo" parameterType="java.util.HashMap">
+        DELETE FROM todo WHERE todo_id = #{todoId}
+    </delete>
 </mapper>
