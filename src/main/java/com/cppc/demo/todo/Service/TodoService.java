@@ -24,8 +24,8 @@ public class TodoService {
     }
 
     //getTodoDetail - todo상세조회
-    public List<Map<String, Object>> getTodoDetail() {
-        return todoMapper.getTodoDetail();
+    public List<Map<String, Object>> getTodoDetail(HashMap map) {
+        return todoMapper.getTodoDetail(map);
     }
 
     //insertTodo - todo등록

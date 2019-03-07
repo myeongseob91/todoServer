@@ -32,7 +32,9 @@ public class TodoController {
     @ResponseBody
     public List<Map<String, Object>> getTodoDetail(@PathVariable("todoId") String todoId) {
         //System.out.println("todoId:::::::::::::::::::::::::"+todoId);
-        return todoService.getTodoDetail();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("todoId", todoId);
+        return todoService.getTodoDetail(map);
     }
 
     /*

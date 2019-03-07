@@ -15,7 +15,7 @@
         <include refid="todoList"/>
     </select>
 
-    <select id="getTodoDetail" resultType="java.util.HashMap">
+    <select id="getTodoDetail" parameterType="java.util.HashMap" resultType="java.util.HashMap">
         /*
         TodoMapper.xml - getTodoDetail : todo상세조회
         */

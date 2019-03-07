@@ -15,7 +15,7 @@ public interface TodoMapper {
     List<Map<String,Object>> getTodoList();
 
     //getTodoDetail - todo상세조회
-    List<Map<String,Object>> getTodoDetail();
+    List<Map<String,Object>> getTodoDetail(HashMap map);
 
     //insertTodo - todo등록
     void insertTodo(HashMap map);
