@@ -1,4 +1,4 @@
-package com.cppc.demo.Mapper;
+package com.cppc.demo.todo.Mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

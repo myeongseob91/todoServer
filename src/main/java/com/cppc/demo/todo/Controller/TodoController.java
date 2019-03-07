@@ -1,6 +1,6 @@
-package com.cppc.demo.Controller;
+package com.cppc.demo.todo.Controller;
 
-import com.cppc.demo.Service.TodoService;
+import com.cppc.demo.todo.Service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
