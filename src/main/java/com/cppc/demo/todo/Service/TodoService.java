@@ -18,9 +18,14 @@ public class TodoService {
         this.todoMapper = todoMapper;
     }
 
-    //getTodoList - todo리스트
-    public List<Map<String, Object>> getTodoList() {
+    //getTodoList - todo조회
+    public List<Map<String,Object>> getTodoList(){
         return todoMapper.getTodoList();
+    }
+
+    //getTodoDetail - todo상세조회
+    public List<Map<String, Object>> getTodoDetail() {
+        return todoMapper.getTodoDetail();
     }
 
     //insertTodo - todo등록

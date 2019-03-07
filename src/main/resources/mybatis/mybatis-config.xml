@@ -3,5 +3,6 @@
 <configuration>
     <mappers>
         <mapper resource="TodoMapper.xml"/>
+        <mapper resource="UserMapper.xml"/>
     </mappers>
 </configuration>

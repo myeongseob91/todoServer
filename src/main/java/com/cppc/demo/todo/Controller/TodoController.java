@@ -15,14 +15,24 @@ public class TodoController {
     TodoService todoService;
 
     /*
-    * getTodoList - todo리스트
+     * getTodoList - todo조회
+     *
+     * */
+    @GetMapping("/todo")
+    @ResponseBody
+    public List<Map<String,Object>> getTodoList(){
+        return todoService.getTodoList();
+    }
+
+    /*
+    * getTodoDetail - todo상세조회
     *
     * */
     @GetMapping("/todo/{todoId}")
     @ResponseBody
-    public List<Map<String, Object>> getTodoList(@PathVariable("todoId") String todoId) {
+    public List<Map<String, Object>> getTodoDetail(@PathVariable("todoId") String todoId) {
         //System.out.println("todoId:::::::::::::::::::::::::"+todoId);
-        return todoService.getTodoList();
+        return todoService.getTodoDetail();
     }
 
     /*

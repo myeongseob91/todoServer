@@ -11,8 +11,11 @@ import java.util.Map;
 @Repository
 public interface TodoMapper {
 
-    //getTodoList - todo리스트
+    //getTodoList - todo조회
     List<Map<String,Object>> getTodoList();
+
+    //getTodoDetail - todo상세조회
+    List<Map<String,Object>> getTodoDetail();
 
     //insertTodo - todo등록
     void insertTodo(HashMap map);
