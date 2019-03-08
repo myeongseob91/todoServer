@@ -1,6 +1,8 @@
 package com.cppc.demo.todo.Controller;
 
 import com.cppc.demo.todo.Service.TodoService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,10 @@ import java.util.Map;
 
 @Controller
 public class TodoController {
+
+    private static final Logger LOGGER = LogManager.getLogger(TodoController.class);
+
+
     @Autowired
     TodoService todoService;
 
@@ -21,6 +27,8 @@ public class TodoController {
     @GetMapping("/todo")
     @ResponseBody
     public List<Map<String,Object>> getTodoList(){
+        LOGGER.debug("todo list:::::::::::::::::::::::::::::::::::");
+        //return null;
         return todoService.getTodoList();
     }
 

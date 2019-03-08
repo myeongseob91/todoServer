@@ -9,24 +9,15 @@
     </sql>
 
     <select id="getTodoList" resultType="java.util.HashMap">
-        /*
-        TodoMapper.xml - getTodoList : todo조회
-        */
         <include refid="todoList"/>
     </select>
 
     <select id="getTodoDetail" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-        /*
-        TodoMapper.xml - getTodoDetail : todo상세조회
-        */
         <include refid="todoList"/>
         WHERE todo_id = #{todoId}
     </select>
 
     <insert id="insertTodo" parameterType="java.util.HashMap">
-        /*
-        TodoMapper.xml - insertTodo : todo등록
-        */
         INSERT INTO todo (todo_id, contents, completed_yn, order_by, end_dttm, reg_dttm)
         VALUES (
           (SELECT cast(max(todo_id) as int)+1 FROM todo),
@@ -39,9 +30,6 @@
     </insert>
 
     <delete id="deleteTodo" parameterType="java.util.HashMap">
-        /*
-        TodoMapper.xml - deleteTodo : todo삭제
-        */
         DELETE FROM todo WHERE todo_id = #{todoId}
     </delete>
 </mapper>
