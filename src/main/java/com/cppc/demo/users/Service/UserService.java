@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -13,6 +15,9 @@ public class UserService {
 
     @Autowired
     UserService(UserMapper userMapper) { this.userMapper = userMapper; }
+
+    //getUserList - 사용자 조회
+    public List<Map<String, Object>> getUserList(){ return userMapper.getUserList(); }
 
     //insertUser - 사용자 등록(회원가입)
     public void insertUser(HashMap map) { userMapper.insertUser(map); }

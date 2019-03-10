@@ -4,6 +4,10 @@
 
 <mapper namespace="com.cppc.demo.users.Mapper.UserMapper">
 
+    <select id="getUserList" resultType="java.util.HashMap">
+        SELECT * FROM users
+    </select>
+
     <insert id="insertUser" parameterType="java.util.HashMap">
         /*
         UserMapper.xml - insertUser : 사용자 등록(회원가입)
