@@ -20,4 +20,8 @@
         )
     </insert>
 
+    <select id="duplicateCheckId" parameterType="java.util.HashMap" resultType="int">
+        select count(*) from users where user_id = #{userId}
+    </select>
+
 </mapper>

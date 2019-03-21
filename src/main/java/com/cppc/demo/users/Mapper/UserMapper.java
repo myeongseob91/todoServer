@@ -16,4 +16,7 @@ public interface UserMapper {
     //insertUser - 사용자 등록(회원가입)
     void insertUser(HashMap map);
 
+    //duplicateCheckId - 사용자 아이디 중복체크
+    int duplicateCheckId(String userId);
+
 }

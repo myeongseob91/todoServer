@@ -22,4 +22,7 @@ public class UserService {
     //insertUser - 사용자 등록(회원가입)
     public void insertUser(HashMap map) { userMapper.insertUser(map); }
 
+    //duplicateCheckId - 사용자 아이디 중복체크
+    public int duplicateCheckId(String userId) { return userMapper.duplicateCheckId(userId); }
+
 }
