@@ -20,7 +20,7 @@
     <insert id="insertTodo" parameterType="java.util.HashMap">
         INSERT INTO todo (todo_id, contents, completed_yn, order_by, end_dttm, reg_dttm)
         VALUES (
-          (SELECT cast(max(todo_id) as int)+1 FROM todo),
+          (SELECT COALESCE(cast(max(todo_id) as int)+1,1) FROM todo),
           #{contents},
           'n',
           #{orderBy},
