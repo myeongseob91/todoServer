@@ -20,6 +20,9 @@ public interface TodoMapper {
     //insertTodo - todo등록
     void insertTodo(HashMap map);
 
+    //updateTOdo - todo수정
+    void updateTodo(HashMap map);
+
     //deleteTodo - todo삭제
     void deleteTodo(HashMap map);
 }

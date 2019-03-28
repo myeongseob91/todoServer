@@ -58,10 +58,8 @@ public class UserController {
         int resultValue = userService.duplicateCheckId(userId); //사용자ID 중복체크
 
         if(resultValue == 0){ //중복되는 아이디 없을 경우
-            //System.out.println("resultValue::::::::::::::"+resultValue);
             return true;
         } else {
-            //System.out.println("resultValue::::::::::::::"+resultValue);
             return false;
         }
     }

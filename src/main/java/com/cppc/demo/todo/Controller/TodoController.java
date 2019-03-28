@@ -57,6 +57,17 @@ public class TodoController {
     }
 
     /*
+     * updateTodo - todo수정
+     *
+     * */
+    @PutMapping("/todo/{todoId}")
+    @ResponseBody
+    public void updateTodo(@PathVariable("todoId") String todoId, @RequestParam HashMap<String,Object> params){
+        params.put("todoId", todoId);
+        todoService.updateTodo(params);
+    }
+
+    /*
      * deleteTodo - todo삭제
      *
      * */
