@@ -31,6 +31,18 @@ public class UserController {
     }
 
     /*
+     *  - 사용자 상세조회
+     *
+     * */
+    @GetMapping("/user/{userId}")
+    @ResponseBody
+    public List<Map<String, Object>> getUserDetail(@PathVariable("userId") String userId){
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("userId",userId);
+        return userService.getUserDetail(map);
+    }
+
+    /*
     * insertUser - 사용자 등록(회원가입)
     *
     * */
@@ -62,6 +74,17 @@ public class UserController {
         } else {
             return false;
         }
+    }
+
+    /*
+     * updateUser - 사용자 수정
+     *
+     * */
+    @PutMapping("/user/{userId}")
+    @ResponseBody
+    public void updateUser(@PathVariable("userId") String userId, @RequestParam HashMap<String, Object> params){
+        params.put("userId", userId);
+        userService.updateUser(params);
     }
 
 }

@@ -19,10 +19,16 @@ public class UserService {
     //getUserList - 사용자 조회
     public List<Map<String, Object>> getUserList(){ return userMapper.getUserList(); }
 
+    //getUserDetail - 사용자 상세조회
+    public List<Map<String, Object>> getUserDetail(HashMap map){ return userMapper.getUserDetail(map); }
+
     //insertUser - 사용자 등록(회원가입)
     public void insertUser(HashMap map) { userMapper.insertUser(map); }
 
     //duplicateCheckId - 사용자 아이디 중복체크
     public int duplicateCheckId(String userId) { return userMapper.duplicateCheckId(userId); }
+
+    //updateUser - 사용자 수정
+    public void updateUser(HashMap map) { userMapper.updateUser(map); }
 
 }
