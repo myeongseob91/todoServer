@@ -31,6 +31,8 @@ public class TodoService {
     //insertTodo - todo등록
     public void insertTodo(HashMap map) { todoMapper.insertTodo(map); }
 
+    public void updateTodo(HashMap map) { todoMapper.updateTodo(map); }
+
     //deleteTodo - todo삭제
     public void deleteTodo(HashMap map) { todoMapper.deleteTodo(map); }
 }

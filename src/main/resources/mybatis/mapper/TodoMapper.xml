@@ -20,7 +20,7 @@
     <insert id="insertTodo" parameterType="java.util.HashMap">
         INSERT INTO todo (todo_id, contents, completed_yn, order_by, end_dttm, reg_dttm)
         VALUES (
-          (SELECT cast(max(todo_id) as int)+1 FROM todo),
+          (SELECT COALESCE(cast(max(todo_id) as int)+1,1) FROM todo),
           #{contents},
           'n',
           #{orderBy},
@@ -28,6 +28,26 @@
           current_timestamp
         )
     </insert>
+
+    <update id="updateTodo" parameterType="java.util.HashMap">
+        UPDATE todo
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="contents != null">
+                contents=#{contents},
+            </if>
+            <if test="completedYn != null">
+                completed_yn=#{completedYn},
+            </if>
+            <if test="orderBy != null">
+                order_by=#{orderBy},
+            </if>
+            <if test="endDttm != null">
+                end_dttm=cast(#{endDttm} as timestamp),
+            </if>
+            upd_dttm=current_timestamp,
+        </trim>
+        WHERE todo_id = #{todoId}
+    </update>
 
     <delete id="deleteTodo" parameterType="java.util.HashMap">
         DELETE FROM todo WHERE todo_id = #{todoId}

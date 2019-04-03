@@ -4,8 +4,17 @@
 
 <mapper namespace="com.cppc.demo.users.Mapper.UserMapper">
 
-    <select id="getUserList" resultType="java.util.HashMap">
+    <sql id="userList">
         SELECT * FROM users
+    </sql>
+
+    <select id="getUserList" resultType="java.util.HashMap">
+        <include refid="userList"/>
+    </select>
+
+    <select id="getUserDetail" resultType="java.util.HashMap">
+        <include refid="userList"/>
+        WHERE user_id = #{userId}
     </select>
 
     <insert id="insertUser" parameterType="java.util.HashMap">
@@ -19,5 +28,22 @@
           #{password}
         )
     </insert>
+
+    <select id="duplicateCheckId" parameterType="java.util.HashMap" resultType="int">
+        select count(*) from users where user_id = #{userId}
+    </select>
+
+    <update id="updateUser" parameterType="java.util.HashMap">
+        UPDATE users
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userNm != null">
+                user_nm = #{userNm},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+        </trim>
+        WHERE user_id = #{userId}
+    </update>
 
 </mapper>
